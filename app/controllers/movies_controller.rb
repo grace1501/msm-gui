@@ -25,10 +25,12 @@ class MoviesController < ApplicationController
   def update
     the_id = params.fetch("path_id")
     the_record = Movie.find(the_id)
-    the_record.name = params.fetch("query_name")
-    the_record.dob = params.fetch("query_dob")
-    the_record.bio = params.fetch("query_bio")
+    the_record.title = params.fetch("query_title")
+    the_record.year = params.fetch("query_year")
+    the_record.duration = params.fetch("query_duration")
+    the_record.description = params.fetch("query_description")
     the_record.image = params.fetch("query_image")
+    the_record.director_id = params.fetch("query_director_id")
     the_record.save
 
     redirect_to("/movies/#{the_id}")
