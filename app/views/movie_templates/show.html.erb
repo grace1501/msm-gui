@@ -53,8 +53,12 @@
     <% matching_directors = Director.where({ :id => dir_id }) %>
     
     <% the_director = matching_directors.at(0) %>
-
-    <%= the_director.name %>
+    <% if the_director == nil %>
+        Sorry, we don't have director data for this movie.
+    <% else %>
+        <%= the_director.name %>
+     <% end %>
+    
   </dd>
 
   <dt>
